@@ -672,14 +672,14 @@ __metadata:
 
 "@griffel/core@patch:@griffel/core@npm:1.3.0#.yarn/patches/@griffel-core-npm-1.3.0-6a4d04e256.patch::locator=react-perfometer%40workspace%3A.":
   version: 1.3.0
-  resolution: "@griffel/core@patch:@griffel/core@npm%3A1.3.0#.yarn/patches/@griffel-core-npm-1.3.0-6a4d04e256.patch::version=1.3.0&hash=eb63c9&locator=react-perfometer%40workspace%3A."
+  resolution: "@griffel/core@patch:@griffel/core@npm%3A1.3.0#.yarn/patches/@griffel-core-npm-1.3.0-6a4d04e256.patch::version=1.3.0&hash=737479&locator=react-perfometer%40workspace%3A."
   dependencies:
     "@emotion/hash": ^0.8.0
     csstype: ^3.0.10
     rtl-css-js: ^1.15.0
     stylis: ^4.0.13
     tslib: ^2.1.0
-  checksum: 6d3029921276cfde6900b2e22ee475bc283516ba4891102b38b94a195257e31677b6b90e3653ec605e97a091cd6e55e347eac8064bacd3a521605c9ce4ea4695
+  checksum: 5ded47e992bb327c636b8f168205d274dfcb15d6903f9bed6a16ef7e74df26cf26364895f3d3dc6c8d3cffef24e8eeea0083e0706fac0b8a7c88f4db3ab82f9b
   languageName: node
   linkType: hard
 

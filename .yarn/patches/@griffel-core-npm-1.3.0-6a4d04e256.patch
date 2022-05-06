@@ -1,8 +1,8 @@
 diff --git a/__styles.esm.js b/__styles.esm.js
-index 374ee5c8af11ef33a57bc2a891624b61f18313bb..3d541eb54abeb206362e4492b5b600b7a7dfc6a8 100644
+index 374ee5c8af11ef33a57bc2a891624b61f18313bb..4268a8823864d2a43502f393abf8750915833956 100644
 --- a/__styles.esm.js
 +++ b/__styles.esm.js
-@@ -21,11 +21,11 @@ function __styles(classesMapBySlot, cssRules) {
+@@ -21,16 +21,16 @@ function __styles(classesMapBySlot, cssRules) {
      const rendererId = isLTR ? renderer.id : renderer.id + 'r';
  
      if (isLTR) {
@@ -15,6 +15,12 @@ index 374ee5c8af11ef33a57bc2a891624b61f18313bb..3d541eb54abeb206362e4492b5b600b7
 +      if (rtlClassNamesForSlots === null || process.env.GRIFFEL_ENFORCE_CLASSES_COMPUTATION) {
          rtlClassNamesForSlots = reduceToClassNameForSlots(classesMapBySlot, dir);
        }
+     }
+ 
+-    if (insertionCache[rendererId] === undefined) {
++    if (insertionCache[rendererId] === undefined || process.env.GRIFFEL_ENFORCE_CSS_INSERTION) {
+       renderer.insertCSSRules(cssRules);
+       insertionCache[rendererId] = true;
      }
 diff --git a/mergeClasses.esm.js b/mergeClasses.esm.js
 index 6aaeaaddbc03bce8cfc1b06a778d2366be7bc422..d5be6f0391e806b89f53be10837f3263029c6a1e 100644
