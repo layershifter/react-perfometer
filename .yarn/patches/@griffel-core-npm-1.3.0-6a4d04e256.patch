@@ -1,0 +1,44 @@
+diff --git a/__styles.esm.js b/__styles.esm.js
+index 374ee5c8af11ef33a57bc2a891624b61f18313bb..3d541eb54abeb206362e4492b5b600b7a7dfc6a8 100644
+--- a/__styles.esm.js
++++ b/__styles.esm.js
+@@ -21,11 +21,11 @@ function __styles(classesMapBySlot, cssRules) {
+     const rendererId = isLTR ? renderer.id : renderer.id + 'r';
+ 
+     if (isLTR) {
+-      if (ltrClassNamesForSlots === null) {
++      if (ltrClassNamesForSlots === null || process.env.GRIFFEL_ENFORCE_CLASSES_COMPUTATION) {
+         ltrClassNamesForSlots = reduceToClassNameForSlots(classesMapBySlot, dir);
+       }
+     } else {
+-      if (rtlClassNamesForSlots === null) {
++      if (rtlClassNamesForSlots === null || process.env.GRIFFEL_ENFORCE_CLASSES_COMPUTATION) {
+         rtlClassNamesForSlots = reduceToClassNameForSlots(classesMapBySlot, dir);
+       }
+     }
+diff --git a/mergeClasses.esm.js b/mergeClasses.esm.js
+index 6aaeaaddbc03bce8cfc1b06a778d2366be7bc422..d5be6f0391e806b89f53be10837f3263029c6a1e 100644
+--- a/mergeClasses.esm.js
++++ b/mergeClasses.esm.js
+@@ -54,7 +54,7 @@ function mergeClasses() {
+ 
+   const mergeClassesResult = mergeClassesCachedResults[sequenceMatch];
+ 
+-  if (mergeClassesResult !== undefined) {
++  if (mergeClassesResult !== undefined && !process.env.GRIFFEL_ENFORCE_MERGE_CLASSES_COMPUTATION) {
+     return resultClassName + mergeClassesResult;
+   }
+ 
+diff --git a/renderer/createDOMRenderer.esm.js b/renderer/createDOMRenderer.esm.js
+index 242ed0ac71738e3df6753a17d663b8885b4bedf4..09ee74000a89edf92f183e24e9fe98ea3da3d25d 100644
+--- a/renderer/createDOMRenderer.esm.js
++++ b/renderer/createDOMRenderer.esm.js
+@@ -28,7 +28,7 @@ function createDOMRenderer(target = typeof document === 'undefined' ? undefined
+         for (let i = 0, l = cssRulesForBucket.length; i < l; i++) {
+           const ruleCSS = cssRulesForBucket[i];
+ 
+-          if (renderer.insertionCache[ruleCSS]) {
++          if (renderer.insertionCache[ruleCSS] && !process.env.GRIFFEL_ENFORCE_CSS_INSERTION) {
+             continue;
+           }
+ 
