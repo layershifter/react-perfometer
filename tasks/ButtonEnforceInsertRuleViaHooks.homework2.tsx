@@ -10,9 +10,8 @@ export default {
     size: "Large",
   },
   env: {
-    GRIFFEL_ENFORCE_CLASSES_COMPUTATION: false,
     GRIFFEL_ENFORCE_CSS_INSERTION: true,
-    GRIFFEL_ENFORCE_MERGE_CLASSES_COMPUTATION: false,
+    GRIFFEL_CSS_INSERTION_VIA_HOOKS: true,
   },
   wrapper: (props) => (
     <FluentProvider theme={teamsLightTheme}>{props.children}</FluentProvider>

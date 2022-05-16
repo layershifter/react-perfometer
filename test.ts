@@ -29,6 +29,12 @@ async function buildHomework(filename: string) {
     outfile: path.resolve(assetsPath, "index.js"),
     define: {
       "process.env.NODE_ENV": `"production"`,
+
+      "process.env.GRIFFEL_ENFORCE_CLASSES_COMPUTATION": false,
+      "process.env.GRIFFEL_ENFORCE_CSS_INSERTION": false,
+      "process.env.GRIFFEL_ENFORCE_MERGE_CLASSES_COMPUTATION": false,
+      "process.env.GRIFFEL_CSS_INSERTION_VIA_HOOKS": false,
+
       ...additionalEnvVars,
     },
     sourcemap: "linked",

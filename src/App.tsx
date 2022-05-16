@@ -21,7 +21,7 @@ const App: React.FC<AppProps> = (props) => {
     component: Component,
     componentProps,
     times,
-    wrapper: Wrapper,
+    wrapper: Wrapper = React.Fragment,
   } = props;
 
   return (
@@ -47,7 +47,7 @@ const App: React.FC<AppProps> = (props) => {
   );
 };
 
-function render(times: number = 20) {
+function render(times: number = 3) {
   ReactDOM.render(
     <App
       component={homework.component}
